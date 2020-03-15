@@ -25,9 +25,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -38,7 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-       onPressed:(){},
+       onPressed:(){
+
+          _globalKey.currentState.showSnackBar(SnackBar(content: Text('Floating button pressed.')));
+
+       },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
