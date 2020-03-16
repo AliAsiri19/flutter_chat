@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'page/login_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,7 +12,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+   
+      routes: {
+        '/': (context) => LoginPage(),
+        '/homePage': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+      },
     );
   }
 }
@@ -40,9 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-       onPressed:(){
-          _globalKey.currentState.showSnackBar(SnackBar(content: Text('Floating button pressed.')));
-       },
+        onPressed: () {
+          _globalKey.currentState.showSnackBar(
+              SnackBar(content: Text('Floating button pressed.')));
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
