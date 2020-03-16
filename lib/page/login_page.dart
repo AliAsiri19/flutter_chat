@@ -22,6 +22,9 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
+                    Container(
+                      height: 50,
+                      child: Image.asset('assets/images/logo.png'),),              
                     CustomTextField('email', TextInputType.emailAddress, false),
                     CustomTextField('password', TextInputType.text, true),
                     Container(
