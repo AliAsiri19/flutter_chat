@@ -25,8 +25,8 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 50,
                       child: Image.asset('assets/images/logo.png'),),              
-                    CustomTextField('email', TextInputType.emailAddress, false),
-                    CustomTextField('password', TextInputType.text, true),
+                    CustomTextField('email', TextInputType.emailAddress, false,Icon(Icons.email)),
+                    CustomTextField('password', TextInputType.text, true,Icon(Icons.lock),),
                     Container(
                       margin: EdgeInsets.only(top: 40),
                       child: FlatButton(
@@ -63,7 +63,8 @@ class CustomTextField extends StatelessWidget {
   final text;
   final textType;
   final obscure;
-  CustomTextField(this.text, this.textType, this.obscure);
+  final Icon icon;
+  CustomTextField(this.text, this.textType, this.obscure,this.icon);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -71,6 +72,7 @@ class CustomTextField extends StatelessWidget {
       child: TextFormField(
         obscureText: obscure,
         decoration: new InputDecoration(
+          suffixIcon: icon,
           labelText: text,
           fillColor: Colors.white,
           border: new OutlineInputBorder(
