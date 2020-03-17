@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplash(
         imagePath: 'assets/images/logo.png',
         home: LoginPage(),
-        duration: 1500,
+        duration: 2500,
         type: AnimatedSplashType.StaticDuration,
       ),
       routes: {
