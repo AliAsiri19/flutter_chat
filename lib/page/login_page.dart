@@ -59,6 +59,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+
 class CustomTextField extends StatelessWidget {
   final text;
   final textType;
