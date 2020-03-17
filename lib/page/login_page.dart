@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutterchat/component/custom_textField.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -19,6 +21,7 @@ class LoginPage extends StatelessWidget {
               child: Container(
                 height: height * 0.7,
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+<<<<<<< HEAD
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
@@ -52,10 +55,60 @@ class LoginPage extends StatelessWidget {
                           "login".toUpperCase(),
                           style: TextStyle(
                             fontSize: 20.0,
+=======
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: Form(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Container(
+                            height: 50,
+                            margin: EdgeInsets.only(bottom: 30),
+                            child: Image.asset('assets/images/logo.png'),
+>>>>>>> e0b9aa12639200a65ece6a266b28ab1d88433137
                           ),
-                        ),
+                          CustomTextField('email', TextInputType.emailAddress,
+                              false, Icon(Icons.email)),
+                          CustomTextField(
+                            'password',
+                            TextInputType.text,
+                            true,
+                            Icon(Icons.lock),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 40),
+                            child: FlatButton(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(18.0),
+                              ),
+                              color: Theme.of(context).primaryColor,
+                              textColor: Colors.black,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 30, vertical: 12),
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, '/home_page');
+                              },
+                              child: Text(
+                                "login".toUpperCase(),
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            alignment:Alignment.centerRight,
+                            width: double.infinity,
+                            margin: EdgeInsets.only(top: 20),
+                            child: FlatButton(child: Text("Sign up",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
+                                    context, '/sign_up')),
+                          )
+                        ],
                       ),
                     ),
+<<<<<<< HEAD
                     Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,6 +126,9 @@ class LoginPage extends StatelessWidget {
                       ),
                     )
                   ],
+=======
+                  ),
+>>>>>>> e0b9aa12639200a65ece6a266b28ab1d88433137
                 ),
               ),
             ),
@@ -83,6 +139,7 @@ class LoginPage extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
 class CustomTextField extends StatelessWidget {
   final text;
   final textType;
@@ -120,3 +177,5 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+=======
+>>>>>>> e0b9aa12639200a65ece6a266b28ab1d88433137
