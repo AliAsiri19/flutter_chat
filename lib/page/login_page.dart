@@ -6,8 +6,9 @@ class LoginPage extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(title: Text('Login'),
-      centerTitle: true,
+      appBar: AppBar(
+        title: Text('Login'),
+        centerTitle: true,
       ),
       body: Container(
         child: Center(
@@ -24,9 +25,16 @@ class LoginPage extends StatelessWidget {
                   children: <Widget>[
                     Container(
                       height: 50,
-                      child: Image.asset('assets/images/logo.png'),),              
-                    CustomTextField('email', TextInputType.emailAddress, false,Icon(Icons.email)),
-                    CustomTextField('password', TextInputType.text, true,Icon(Icons.lock),),
+                      child: Image.asset('assets/images/logo.png'),
+                    ),
+                    CustomTextField('email', TextInputType.emailAddress, false,
+                        Icon(Icons.email)),
+                    CustomTextField(
+                      'password',
+                      TextInputType.text,
+                      true,
+                      Icon(Icons.lock),
+                    ),
                     Container(
                       margin: EdgeInsets.only(top: 40),
                       child: FlatButton(
@@ -48,6 +56,22 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            'Forget password ?',
+                            style: TextStyle(color: Theme.of(context).primaryColor),
+                          ),
+                          Text(
+                            'Registration',
+                            style: TextStyle(color: Theme.of(context).primaryColor),
+                          ),
+
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -59,13 +83,12 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-
 class CustomTextField extends StatelessWidget {
   final text;
   final textType;
   final obscure;
   final Icon icon;
-  CustomTextField(this.text, this.textType, this.obscure,this.icon);
+  CustomTextField(this.text, this.textType, this.obscure, this.icon);
   @override
   Widget build(BuildContext context) {
     return Container(
