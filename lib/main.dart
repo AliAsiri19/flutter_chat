@@ -1,4 +1,6 @@
+import 'package:animated_splash/animated_splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterchat/page/sign_up.dart';
 
 import 'page/login_page.dart';
 
@@ -12,10 +14,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-   
+      home: AnimatedSplash(
+        imagePath: 'assets/images/logo.png',
+        home: LoginPage(),
+        duration: 2500,
+        type: AnimatedSplashType.StaticDuration,
+      ),
       routes: {
-        '/': (context) => LoginPage(),
-        '/homePage': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+         '/home_page': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        '/login': (context) => LoginPage(),
+        '/sign_up': (context) => SignUp(),
       },
     );
   }

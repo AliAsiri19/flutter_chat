@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutterchat/component/custom_textField.dart';
 
-class LoginPage extends StatelessWidget {
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: Text('Sign up'),
         centerTitle: true,
       ),
       body: Container(
@@ -29,7 +28,6 @@ class LoginPage extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             height: 50,
-                            margin: EdgeInsets.only(bottom: 30),
                             child: Image.asset('assets/images/logo.png'),
                           ),
                           CustomTextField('email', TextInputType.emailAddress,
@@ -40,8 +38,14 @@ class LoginPage extends StatelessWidget {
                             true,
                             Icon(Icons.lock),
                           ),
+                           CustomTextField(
+                            'verify password',
+                            TextInputType.text,
+                            true,
+                            Icon(Icons.lock),
+                          ),
                           Container(
-                            margin: EdgeInsets.only(top: 40),
+                            margin: EdgeInsets.only(top: 20),
                             child: FlatButton(
                               shape: new RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(18.0),
@@ -55,19 +59,19 @@ class LoginPage extends StatelessWidget {
                                     context, '/home_page');
                               },
                               child: Text(
-                                "login".toUpperCase(),
+                                "Sign up".toUpperCase(),
                                 style: TextStyle(
                                   fontSize: 20.0,
                                 ),
                               ),
                             ),
                           ),
-                          Container(
+                           Container(
                             alignment:Alignment.centerRight,
                             width: double.infinity,
-                            margin: EdgeInsets.only(top: 20),
+                            margin: EdgeInsets.only(top:0),
                             child: FlatButton(child: Text("Sign up",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
-                                    context, '/sign_up')),
+                                    context, '/login')),
                           )
                         ],
                       ),
@@ -82,4 +86,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
