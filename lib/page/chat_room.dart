@@ -33,6 +33,8 @@ class _ChatRoomState extends State<ChatRoom> {
                 height: double.infinity,
                 decoration: new BoxDecoration(
                   image: new DecorationImage(
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.2), BlendMode.dstATop),
                     image: new AssetImage("assets/images/chat-background.jpg"),
                     fit: BoxFit.cover,
                   ),
@@ -52,11 +54,12 @@ class _ChatRoomState extends State<ChatRoom> {
                                 itemCount: reversedlitems.length,
                                 reverse: true,
                                 itemBuilder: (BuildContext ctxt, int index) {
+                                  final isThisUser =
+                                      currentID == reversedlitems[index]["id"];
                                   return Align(
-                                    alignment:
-                                        currentID == reversedlitems[index]["id"]
-                                            ? Alignment.centerRight
-                                            : Alignment.centerLeft,
+                                    alignment: isThisUser
+                                        ? Alignment.centerRight
+                                        : Alignment.centerLeft,
                                     child: SizedBox(
                                       width: 250,
                                       child: Card(
@@ -64,10 +67,9 @@ class _ChatRoomState extends State<ChatRoom> {
                                               padding: EdgeInsets.all(12),
                                               child: Text(reversedlitems[index]
                                                   ["text"])),
-                                          color: currentID ==
-                                                  reversedlitems[index]["id"]
-                                              ? Colors.green.withOpacity(0.4)
-                                              : Colors.orange.withOpacity(0.4)),
+                                          color: isThisUser
+                                              ? Colors.green[200]
+                                              : Colors.orange[200]),
                                     ),
                                   );
                                 }))),
