@@ -56,7 +56,7 @@ class SignUp extends StatelessWidget {
                                   horizontal: 30, vertical: 12),
                               onPressed: () {
                                 Navigator.pushReplacementNamed(
-                                    context, '/home_page');
+                                    context, '/chat_room');
                               },
                               child: Text(
                                 "Sign up".toUpperCase(),
