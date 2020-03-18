@@ -1,14 +1,13 @@
-import 'user.dart';
 
 class Messages {
   final int id;
-  final User user;
+  final String userId;
   final body;
   final DateTime time;
 
   Messages(
     this.id,
-    this.user,
+    this.userId,
     this.body,
     this.time,
   );
