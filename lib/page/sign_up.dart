@@ -70,7 +70,7 @@ class SignUp extends StatelessWidget {
                             alignment:Alignment.centerRight,
                             width: double.infinity,
                             margin: EdgeInsets.only(top:0),
-                            child: FlatButton(child: Text("Sign up",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
+                            child: FlatButton(child: Text("Login",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
                                     context, '/login')),
                           )
                         ],

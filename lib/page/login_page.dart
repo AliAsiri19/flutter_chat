@@ -63,10 +63,15 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           Container(
-                            alignment:Alignment.centerRight,
+                            alignment: Alignment.centerRight,
                             width: double.infinity,
                             margin: EdgeInsets.only(top: 20),
-                            child: FlatButton(child: Text("Sign up",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
+                            child: FlatButton(
+                                child: Text(
+                                  "Sign up",
+                                  style: TextStyle(color: Colors.deepOrange),
+                                ),
+                                onPressed: () => Navigator.pushReplacementNamed(
                                     context, '/sign_up')),
                           )
                         ],
@@ -82,4 +87,3 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
