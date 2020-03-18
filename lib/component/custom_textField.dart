@@ -13,13 +13,13 @@ class CustomTextField extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
       child: TextFormField(
         obscureText: obscure,
-        decoration: new InputDecoration(
+        decoration:  InputDecoration(
           prefixIcon:  icon,
           labelText: text,
           fillColor: Colors.white,
-          border: new OutlineInputBorder(
-            borderRadius: new BorderRadius.circular(25.0),
-            borderSide: new BorderSide(),
+          border:  OutlineInputBorder(
+            borderRadius:  BorderRadius.circular(25.0),
+            borderSide:  BorderSide(),
           ),
           //fillColor: Colors.green
         ),
@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
           }
         },
         keyboardType: textType,
-        style: new TextStyle(
+        style:  TextStyle(
           fontFamily: "Poppins",
         ),
       ),

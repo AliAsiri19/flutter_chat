@@ -1,5 +1,6 @@
 import 'package:animated_splash/animated_splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterchat/page/chat_room.dart';
 import 'package:flutterchat/page/sign_up.dart';
 
 import 'page/login_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
          '/home_page': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
         '/login': (context) => LoginPage(),
         '/sign_up': (context) => SignUp(),
+        '/chat_room': (context) => ChatRoom(),
       },
     );
   }
