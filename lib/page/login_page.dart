@@ -40,6 +40,15 @@ class LoginPage extends StatelessWidget {
                             true,
                             Icon(Icons.lock),
                           ),
+                          Row(
+                            children: <Widget>[
+                              Checkbox(
+                                value: false,
+                                onChanged: (_) {},
+                              ),
+                              Text('Remember me.')
+                            ],
+                          ),
                           Container(
                             margin: EdgeInsets.only(top: 40),
                             child: FlatButton(
