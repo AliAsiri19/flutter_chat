@@ -60,7 +60,7 @@ class LoginPage extends StatelessWidget {
                               alignment: Alignment.centerLeft,
                               child: FlatButton(
                                 onPressed: () {
-                                  // page to change password 
+                                  // page to change password
                                 },
                                 child: Text('Forget password ?'),
                               ),
@@ -76,6 +76,7 @@ class LoginPage extends StatelessWidget {
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 12),
                                 onPressed: () {
+                                  // save checkbox preference .
                                   Navigator.pushReplacementNamed(
                                       context, '/chat_room');
                                 },
