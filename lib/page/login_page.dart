@@ -43,21 +43,27 @@ class LoginPage extends StatelessWidget {
                               true,
                               Icon(Icons.lock),
                             ),
-                            Row(
-                              children: <Widget>[
-                                Consumer<RememberMeCheckBoxState>(
-                                  builder: (context, state, child) {
-                                    return Checkbox(
-                                      value: state.getCheckBoxState,
-                                      onChanged: (pressState) {
-                                        state.setCheckBoxState(pressState);
-                                      },
-                                    );
+                            Consumer<RememberMeCheckBoxState>(
+                              builder: (context, state, child) {
+                                return CheckboxListTile(
+                                  controlAffinity:
+                                      ListTileControlAffinity.leading,
+                                  title: Text('Remember Me!'),
+                                  value: state.getCheckBoxState,
+                                  onChanged: (pressState) {
+                                    state.setCheckBoxState(pressState);
                                   },
-                                  // child:
-                                ),
-                                Text('Remember me.')
-                              ],
+                                );
+                              },
+                            ),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: FlatButton(
+                                onPressed: () {
+                                  // page to change password 
+                                },
+                                child: Text('Forget password ?'),
+                              ),
                             ),
                             Container(
                               margin: EdgeInsets.only(top: 40),
