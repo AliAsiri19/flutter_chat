@@ -55,8 +55,8 @@ class SignUp extends StatelessWidget {
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 12),
                               onPressed: () {
-                                Navigator.pushReplacementNamed(
-                                    context, '/chat_room');
+                                // Navigator.pushReplacementNamed(
+                                //     context, '/chat_room');
                               },
                               child: Text(
                                 "Sign up".toUpperCase(),
