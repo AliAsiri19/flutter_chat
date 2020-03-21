@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutterchat/component/custom_textField.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -8,6 +9,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
@@ -53,28 +55,54 @@ class LoginPage extends StatelessWidget {
                                   Navigator.pushReplacementNamed(
                                       context, '/chat_room');
                                 }
+
                               },
-                              child: Text(
-                                "login".toUpperCase(),
-                                style: TextStyle(
-                                  fontSize: 20.0,
+                            ),
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: FlatButton(
+                                onPressed: () {
+                                  // page to change password
+                                },
+                                child: Text('Forget password ?'),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 40),
+                              child: FlatButton(
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: new BorderRadius.circular(18.0),
+                                ),
+                                color: Theme.of(context).primaryColor,
+                                textColor: Colors.black,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 30, vertical: 12),
+                                onPressed: () {
+                                  // save checkbox preference .
+                                  Navigator.pushNamed(context, '/chat_room');
+                                },
+                                child: Text(
+                                  "login".toUpperCase(),
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerRight,
-                            width: double.infinity,
-                            margin: EdgeInsets.only(top: 20),
-                            child: FlatButton(
+                            Container(
+                              alignment: Alignment.centerRight,
+                              width: double.infinity,
+                              margin: EdgeInsets.only(top: 20),
+                              child: FlatButton(
                                 child: Text(
                                   "Sign up",
                                   style: TextStyle(color: Colors.deepOrange),
                                 ),
-                                onPressed: () => Navigator.pushReplacementNamed(
-                                    context, '/sign_up')),
-                          )
-                        ],
+                                onPressed: () => Navigator.pushNamed(context, '/sign_up'),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -87,6 +115,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
 
 String _emailValidtion(String text) {
   if (text.toString().length == 0) {
@@ -101,5 +130,6 @@ String _passwordValidtion(String text) {
     return "is empty";
   } else {
     return null;
+
   }
 }

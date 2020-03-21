@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        
       ),
       home: AnimatedSplash(
         imagePath: 'assets/images/logo.png',
