@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
             child: Card(
               color: Colors.grey[200],
               child: Container(
-                height: height * 0.7,
+                height: height * 0.8,
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 child: Center(
                   child: SingleChildScrollView(
@@ -55,54 +55,51 @@ class LoginPage extends StatelessWidget {
                                   Navigator.pushReplacementNamed(
                                       context, '/chat_room');
                                 }
-
                               },
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              child: FlatButton(
-                                onPressed: () {
-                                  // page to change password
-                                },
-                                child: Text('Forget password ?'),
+                              child: Text(
+                                "login".toUpperCase(),
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(top: 40),
-                              child: FlatButton(
-                                shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(18.0),
-                                ),
-                                color: Theme.of(context).primaryColor,
-                                textColor: Colors.black,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 30, vertical: 12),
-                                onPressed: () {
-                                  // save checkbox preference .
-                                  Navigator.pushNamed(context, '/chat_room');
-                                },
-                                child: Text(
-                                  "login".toUpperCase(),
-                                  style: TextStyle(
-                                    fontSize: 20.0,
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(top: 20),
+                            child: Row(
+                              children: <Widget>[
+                                Flexible(
+                                  flex: 5,
+                                  child: Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: FlatButton(
+                                      onPressed: () {
+                                        // page to change password
+                                      },
+                                      child: Text('Forget password ?', style:
+                                            TextStyle(color: Colors.deepOrange),),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Flexible(
+                                  flex: 5,
+                                  child: Container(
+                                    alignment: Alignment.centerRight,
+                                    child: FlatButton(
+                                      child: Text(
+                                        "Sign up",
+                                        style:
+                                            TextStyle(color: Colors.deepOrange),
+                                      ),
+                                      onPressed: () => Navigator.pushNamed(
+                                          context, '/sign_up'),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
-                            Container(
-                              alignment: Alignment.centerRight,
-                              width: double.infinity,
-                              margin: EdgeInsets.only(top: 20),
-                              child: FlatButton(
-                                child: Text(
-                                  "Sign up",
-                                  style: TextStyle(color: Colors.deepOrange),
-                                ),
-                                onPressed: () => Navigator.pushNamed(context, '/sign_up'),
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
                     ),
                   ),
@@ -115,7 +112,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
 
 String _emailValidtion(String text) {
   if (text.toString().length == 0) {
@@ -130,6 +126,5 @@ String _passwordValidtion(String text) {
     return "is empty";
   } else {
     return null;
-
   }
 }
