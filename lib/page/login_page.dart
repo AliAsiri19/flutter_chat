@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutterchat/component/custom_textField.dart';
 
 class LoginPage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -24,6 +25,7 @@ class LoginPage extends StatelessWidget {
                 child: Center(
                   child: SingleChildScrollView(
                     child: Form(
+                      key: _formKey,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
@@ -33,13 +35,9 @@ class LoginPage extends StatelessWidget {
                             child: Image.asset('assets/images/logo.png'),
                           ),
                           CustomTextField('email', TextInputType.emailAddress,
-                              false, Icon(Icons.email)),
-                          CustomTextField(
-                            'password',
-                            TextInputType.text,
-                            true,
-                            Icon(Icons.lock),
-                          ),
+                              false, Icon(Icons.email), _emailValidtion),
+                          CustomTextField('password', TextInputType.text, true,
+                              Icon(Icons.lock), _passwordValidtion),
                           Container(
                             margin: EdgeInsets.only(top: 40),
                             child: FlatButton(
@@ -51,8 +49,10 @@ class LoginPage extends StatelessWidget {
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 12),
                               onPressed: () {
-                                Navigator.pushReplacementNamed(
-                                    context, '/chat_room');
+                                if (_formKey.currentState.validate()) {
+                                  Navigator.pushReplacementNamed(
+                                      context, '/chat_room');
+                                }
                               },
                               child: Text(
                                 "login".toUpperCase(),
@@ -85,5 +85,21 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+String _emailValidtion(String text) {
+  if (text.toString().length == 0) {
+    return "is empty";
+  } else {
+    return null;
+  }
+}
+
+String _passwordValidtion(String text) {
+  if (text.toString().length == 0) {
+    return "is empty";
+  } else {
+    return null;
   }
 }

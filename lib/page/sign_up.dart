@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterchat/component/custom_textField.dart';
 
 class SignUp extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -18,11 +19,12 @@ class SignUp extends StatelessWidget {
             child: Card(
               color: Colors.grey[200],
               child: Container(
-                height: height * 0.7,
+                height: height * 0.8,
                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 child: Center(
                   child: SingleChildScrollView(
                     child: Form(
+                      key: _formKey,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
@@ -31,19 +33,11 @@ class SignUp extends StatelessWidget {
                             child: Image.asset('assets/images/logo.png'),
                           ),
                           CustomTextField('email', TextInputType.emailAddress,
-                              false, Icon(Icons.email)),
-                          CustomTextField(
-                            'password',
-                            TextInputType.text,
-                            true,
-                            Icon(Icons.lock),
-                          ),
-                           CustomTextField(
-                            'verify password',
-                            TextInputType.text,
-                            true,
-                            Icon(Icons.lock),
-                          ),
+                              false, Icon(Icons.email), _emailValidtion),
+                          CustomTextField('password', TextInputType.text, true,
+                              Icon(Icons.lock), _passwordValidtion),
+                          CustomTextField('verify password', TextInputType.text,
+                              true, Icon(Icons.lock), _verifyPasswordValidtion),
                           Container(
                             margin: EdgeInsets.only(top: 20),
                             child: FlatButton(
@@ -55,8 +49,10 @@ class SignUp extends StatelessWidget {
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30, vertical: 12),
                               onPressed: () {
-                                Navigator.pushReplacementNamed(
-                                    context, '/chat_room');
+                                if (_formKey.currentState.validate()) {
+                                  Navigator.pushReplacementNamed(
+                                      context, '/chat_room');
+                                }
                               },
                               child: Text(
                                 "Sign up".toUpperCase(),
@@ -66,11 +62,16 @@ class SignUp extends StatelessWidget {
                               ),
                             ),
                           ),
-                           Container(
-                            alignment:Alignment.centerRight,
+                          Container(
+                            alignment: Alignment.centerRight,
                             width: double.infinity,
-                            margin: EdgeInsets.only(top:0),
-                            child: FlatButton(child: Text("Login",style: TextStyle(color: Colors.deepOrange),),onPressed: ()=> Navigator.pushReplacementNamed(
+                            margin: EdgeInsets.only(top: 0),
+                            child: FlatButton(
+                                child: Text(
+                                  "Login",
+                                  style: TextStyle(color: Colors.deepOrange),
+                                ),
+                                onPressed: () => Navigator.pushReplacementNamed(
                                     context, '/login')),
                           )
                         ],
@@ -84,5 +85,29 @@ class SignUp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+String _emailValidtion(String text) {
+  if (text.toString().length == 0) {
+    return "is empty";
+  } else {
+    return null;
+  }
+}
+
+String _passwordValidtion(String text) {
+  if (text.toString().length == 0) {
+    return "is empty";
+  } else {
+    return null;
+  }
+}
+
+String _verifyPasswordValidtion(String text) {
+  if (text.toString().length == 0) {
+    return "is empty";
+  } else {
+    return null;
   }
 }

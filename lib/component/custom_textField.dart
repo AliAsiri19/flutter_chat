@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -6,32 +5,29 @@ class CustomTextField extends StatelessWidget {
   final textType;
   final obscure;
   final Icon icon;
-  CustomTextField(this.text, this.textType, this.obscure, this.icon);
+  final _valid;
+  CustomTextField(
+      this.text, this.textType, this.obscure, this.icon, this._valid);
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
       child: TextFormField(
         obscureText: obscure,
-        decoration:  InputDecoration(
-          prefixIcon:  icon,
+        decoration: InputDecoration(
+          counterText: ' \n',
+          prefixIcon: icon,
           labelText: text,
           fillColor: Colors.white,
-          border:  OutlineInputBorder(
-            borderRadius:  BorderRadius.circular(25.0),
-            borderSide:  BorderSide(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
+            borderSide: BorderSide(),
           ),
           //fillColor: Colors.green
         ),
-        validator: (val) {
-          if (val.length == 0) {
-            return "is empty";
-          } else {
-            return null;
-          }
-        },
+        validator: _valid,
         keyboardType: textType,
-        style:  TextStyle(
+        style: TextStyle(
           fontFamily: "Poppins",
         ),
       ),
