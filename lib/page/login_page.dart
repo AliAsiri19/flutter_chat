@@ -20,10 +20,10 @@ class LoginPage extends StatelessWidget {
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: Card(
-                color: Colors.grey[200],
+                color: Colors.grey[300],
                 child: Container(
-                  height: height * 0.7,
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                  height: height * 0.80,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Center(
                     child: SingleChildScrollView(
                       child: Form(
@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                               child: Image.asset('assets/images/logo.png'),
                             ),
                             CustomTextField('email', TextInputType.emailAddress,
-                                false, Icon(Icons.email)),
+                                false, Icon(Icons.person)),
                             CustomTextField(
                               'password',
                               TextInputType.text,
@@ -77,8 +77,7 @@ class LoginPage extends StatelessWidget {
                                     horizontal: 30, vertical: 12),
                                 onPressed: () {
                                   // save checkbox preference .
-                                  Navigator.pushReplacementNamed(
-                                      context, '/chat_room');
+                                  Navigator.pushNamed(context, '/chat_room');
                                 },
                                 child: Text(
                                   "login".toUpperCase(),
@@ -93,13 +92,12 @@ class LoginPage extends StatelessWidget {
                               width: double.infinity,
                               margin: EdgeInsets.only(top: 20),
                               child: FlatButton(
-                                  child: Text(
-                                    "Sign up",
-                                    style: TextStyle(color: Colors.deepOrange),
-                                  ),
-                                  onPressed: () =>
-                                      Navigator.pushReplacementNamed(
-                                          context, '/sign_up')),
+                                child: Text(
+                                  "Sign up",
+                                  style: TextStyle(color: Colors.deepOrange),
+                                ),
+                                onPressed: () => Navigator.pushNamed(context, '/sign_up'),
+                              ),
                             )
                           ],
                         ),
