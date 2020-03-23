@@ -22,17 +22,17 @@ class LoginPage extends StatelessWidget {
               child: Card(
                 color: Colors.grey[300],
                 child: Container(
-                  height: height * 0.80,
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  height: height * 0.90,
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Center(
                     child: SingleChildScrollView(
                       child: Form(
                         child: Column(
-                          mainAxisSize: MainAxisSize.min,
+                          // mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Container(
                               height: 50,
-                              margin: EdgeInsets.only(bottom: 30),
+                              margin: EdgeInsets.only(bottom: 10),
                               child: Image.asset('assets/images/logo.png'),
                             ),
                             CustomTextField(
@@ -73,10 +73,10 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 40),
+                              margin: EdgeInsets.only(top: 20),
                               child: FlatButton(
                                 shape: new RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(18.0),
+                                  borderRadius: new BorderRadius.circular(10.0),
                                 ),
                                 color: Theme.of(context).primaryColor,
                                 textColor: Colors.black,
@@ -89,7 +89,7 @@ class LoginPage extends StatelessWidget {
                                 child: Text(
                                   "login".toUpperCase(),
                                   style: TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: 18.0,
                                   ),
                                 ),
                               ),
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                             Container(
                               alignment: Alignment.centerRight,
                               width: double.infinity,
-                              margin: EdgeInsets.only(top: 20),
+                              margin: EdgeInsets.only(top: 5),
                               child: FlatButton(
                                 child: Text(
                                   "Sign up",

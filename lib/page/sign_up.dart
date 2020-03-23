@@ -29,9 +29,10 @@ class SignUp extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           Container(
-                            height: 50,
+                            height: 60,
                             child: Image.asset('assets/images/logo.png'),
                           ),
+                          SizedBox(height: 30,),
                           CustomTextField('email', TextInputType.emailAddress,
                               false, Icon(Icons.email), _emailValidtion),
                           CustomTextField('password', TextInputType.text, true,
@@ -39,15 +40,15 @@ class SignUp extends StatelessWidget {
                           CustomTextField('verify password', TextInputType.text,
                               true, Icon(Icons.lock), _verifyPasswordValidtion),
                           Container(
-                            margin: EdgeInsets.only(top: 20),
+                            margin: EdgeInsets.only(top: 10),
                             child: FlatButton(
                               shape: new RoundedRectangleBorder(
-                                borderRadius: new BorderRadius.circular(18.0),
+                                borderRadius: new BorderRadius.circular(10.0),
                               ),
                               color: Theme.of(context).primaryColor,
                               textColor: Colors.black,
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 30, vertical: 12),
+                                  horizontal: 30, vertical: 8),
                               onPressed: () {
 
                                 if (_formKey.currentState.validate()) {
@@ -61,23 +62,23 @@ class SignUp extends StatelessWidget {
                               child: Text(
                                 "Sign up".toUpperCase(),
                                 style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: 18.0,
                                 ),
                               ),
                             ),
                           ),
-                          Container(
-                            alignment: Alignment.centerRight,
-                            width: double.infinity,
-                            margin: EdgeInsets.only(top: 0),
-                            child: FlatButton(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(color: Colors.deepOrange),
-                                ),
-                                onPressed: () => Navigator.pushReplacementNamed(
-                                    context, '/login')),
-                          )
+                          // Container(
+                          //   alignment: Alignment.centerRight,
+                          //   width: double.infinity,
+                          //   margin: EdgeInsets.only(top: 0),
+                          //   child: FlatButton(
+                          //       child: Text(
+                          //         "Login",
+                          //         style: TextStyle(color: Colors.deepOrange),
+                          //       ),
+                          //       onPressed: () => Navigator.pushReplacementNamed(
+                          //           context, '/login')),
+                          // )
                         ],
                       ),
                     ),
