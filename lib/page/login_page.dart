@@ -43,6 +43,7 @@ class LoginPage extends StatelessWidget {
                               true,
                               Icon(Icons.lock),
                             ),
+                            // add Consumer 
                             Consumer<RememberMeCheckBoxState>(
                               builder: (context, state, child) {
                                 return CheckboxListTile(
