@@ -36,12 +36,12 @@ class LoginPage extends StatelessWidget {
                               child: Image.asset('assets/images/logo.png'),
                             ),
                             CustomTextField('email', TextInputType.emailAddress,
-                                false, Icon(Icons.person)),
+                                false, Icon(Icons.person),false),
                             CustomTextField(
                               'password',
                               TextInputType.text,
                               true,
-                              Icon(Icons.lock),
+                              Icon(Icons.lock),false
                             ),
                             // add Consumer 
                             Consumer<RememberMeCheckBoxState>(
