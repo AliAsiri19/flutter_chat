@@ -25,7 +25,7 @@ class CustomTextField extends StatelessWidget {
           ),
           //fillColor: Colors.green
         ),
-        validator: _valid,
+        // validator: _valid,
         keyboardType: textType,
         style: TextStyle(
           fontFamily: "Poppins",

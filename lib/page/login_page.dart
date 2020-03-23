@@ -35,15 +35,21 @@ class LoginPage extends StatelessWidget {
                               margin: EdgeInsets.only(bottom: 30),
                               child: Image.asset('assets/images/logo.png'),
                             ),
-                            CustomTextField('email', TextInputType.emailAddress,
-                                false, Icon(Icons.person),false),
+                            CustomTextField(
+                              'email',
+                              TextInputType.emailAddress,
+                              false,
+                              Icon(Icons.person),
+                              true,
+                            ),
                             CustomTextField(
                               'password',
                               TextInputType.text,
                               true,
-                              Icon(Icons.lock),false
+                              Icon(Icons.lock),
+                              true,
                             ),
-                            // add Consumer 
+                            // add Consumer
                             Consumer<RememberMeCheckBoxState>(
                               builder: (context, state, child) {
                                 return CheckboxListTile(
@@ -97,7 +103,8 @@ class LoginPage extends StatelessWidget {
                                   "Sign up",
                                   style: TextStyle(color: Colors.deepOrange),
                                 ),
-                                onPressed: () => Navigator.pushNamed(context, '/sign_up'),
+                                onPressed: () =>
+                                    Navigator.pushNamed(context, '/sign_up'),
                               ),
                             )
                           ],
